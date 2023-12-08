@@ -1,13 +1,13 @@
 ﻿﻿
-// Нужно вычислить произведение матрицы на вектор. В полученном векторе найти макисмальный  элемент.
+// Нужно вычислить произведение матрицы на вектор. В полученном векторе найти макисмальный элемент.
 
 int Zapros(string message) {
-    Console.WriteLine(message);
+ Console.WriteLine(message);
     int num = System.Convert.ToInt32(Console.ReadLine());
     return num;
 }
 
-int[,] GetDoubleMass(int rows, int columns) {
+int[,] GetDoubleMass(int rows, int columns) { // заполнение массива случ.числами
     int[,] arr = new int[rows,columns];
     for (int i = 0; i < arr.GetLength(0); i++)
     {
@@ -15,14 +15,14 @@ int[,] GetDoubleMass(int rows, int columns) {
         {
             Random rnd = new Random();
             arr[i,j] = rnd.Next(1,10);
-            
-        
+
+
         }
     }
     return arr;
 }
 
-int[] Vector(int columns) {
+int[] Vector(int columns) { // заполнение вектора случ.числами
     int[] vector = new int[columns]; 
         for (int i = 0; i < columns; i++ )
         {
@@ -32,15 +32,15 @@ int[] Vector(int columns) {
     return vector;
 }
 
-void PrintVector(int[] Vector) {
+void PrintVector(int[] Vector) { // печать вектора
     Console.WriteLine("\nвектор:\n");
         for (int i = 0; i < Vector.Length; i++ )
         {
-           Console.WriteLine(Vector[i]);
+            Console.WriteLine(Vector[i]);
         }
 }
 
-void PrintArr(int[,] arr) {
+void PrintArr(int[,] arr) { // печать массива
     for (int i = 0; i < arr.GetLength(0); i++)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
@@ -51,7 +51,7 @@ void PrintArr(int[,] arr) {
     }
 }
 
-int[] ResultVector(int[,] Mass, int[] Vector) {
+int[] ResultVector(int[,] Mass, int [] Vector) { // Произведение массива на вектор
     int[] Result = new int[Mass.GetLength(0)];
         for (int i = 0; i < Mass.GetLength(0); i++)
         {
@@ -59,12 +59,12 @@ int[] ResultVector(int[,] Mass, int[] Vector) {
             {
                 Result[i] = Result[i] + Mass[i,j] * Vector[j];
             }
-            Console.WriteLine();
+        Console.WriteLine();
         }
     return Result;
 }
 
-void FindMax(int[] Arr) {
+void FindMax(int[] Arr) { // поиск максимального элемента результирующего вектора
     int max = Arr[1];
     for (int i = 0; i < Arr.Length; i++)
     {
@@ -72,14 +72,15 @@ void FindMax(int[] Arr) {
             max = Arr[i];
         }
     }
-    Console.WriteLine($"Максимальный элемент = {max}");
+ Console.WriteLine($"Максимальный элемент = {max}");
 }
 
 
 
 int ROWS = Zapros("введите количество строк");
 int COLUMNS = Zapros("введите количество столбцов");
-if(ROWS <= 1 || COLUMNS <= 1) {
+if(ROWS <= 1 || COLUMNS <= 1) 
+{
     Console.WriteLine("Invalid rows or columns");
     return;
 }
@@ -92,4 +93,3 @@ int[] OperationResult = ResultVector(DoubleArr,Vectorr);
 PrintVector(OperationResult);
 Console.WriteLine();
 FindMax(OperationResult);
-
